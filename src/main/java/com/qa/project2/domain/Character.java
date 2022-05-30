@@ -59,9 +59,15 @@ public class Character {
 	@NotNull
 	private String gender;
 
-	public Character(String forename, String surname) {
+	public Character(String forename, String surname, int level, String charClass, String race, String alignment, String backround, String gender) {
 		this.forename = forename;
 		this.surname = surname;
+		this.level=level;
+		this.charClass=charClass;
+		this.race=race;
+		this.alignment=alignment;
+		this.backround=backround;
+		this.gender=gender;
 
 	}
 
