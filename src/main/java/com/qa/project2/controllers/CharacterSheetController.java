@@ -6,6 +6,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,11 @@ public class CharacterSheetController {
 	@GetMapping("/getAll")
 	public ResponseEntity<List<CharacterSheet>> getAll() {
 		return new ResponseEntity<List<CharacterSheet>>(service.getAll(), HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Boolean> deleteCharacterSheet(@PathVariable Long id) {
+		return new ResponseEntity<Boolean>(service.deleteCharacterSheet(id), HttpStatus.NO_CONTENT);
 	}
 
 }

@@ -46,4 +46,9 @@ public class CharacterSheetService {
 		return repo.findAll();
 	}
 
+	public boolean deleteCharacterSheet(Long id) {
+		repo.deleteById(id);
+		return repo.existsById(id);
+	}
+
 }
