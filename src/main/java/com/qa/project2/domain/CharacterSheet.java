@@ -22,7 +22,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class Character {
+public class CharacterSheet {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,7 +59,7 @@ public class Character {
 	@NotNull
 	private String gender;
 
-	public Character(String forename, String surname, int level, String charClass, String race, String alignment, String backround, String gender) {
+	public CharacterSheet(String forename, String surname, int level, String charClass, String race, String alignment, String backround, String gender) {
 		this.forename = forename;
 		this.surname = surname;
 		this.level=level;
