@@ -9,23 +9,23 @@ import com.qa.project2.domain.CharacterSheet;
 
 @Service
 public class CharacterSheetService {
-	
+
 	private CharacterSheetRepo repo;
-	
+
 	public CharacterSheetService(CharacterSheetRepo repo) {
 		super();
-		this.repo=repo;
+		this.repo = repo;
 	}
-	
+
 	public CharacterSheet create(CharacterSheet created) {
 		return repo.save(created);
-		
+
 	}
-	
+
 	public CharacterSheet update(Long id, CharacterSheet updated) {
-		
+
 		CharacterSheet existing = repo.findById(id).get();
-		
+
 		existing.setForename(updated.getForename());
 		existing.setSurname(updated.getSurname());
 		existing.setLevel(updated.getLevel());
@@ -34,7 +34,7 @@ public class CharacterSheetService {
 		existing.setAlignment(updated.getAlignment());
 		existing.setBackround(updated.getBackround());
 		existing.setGender(updated.getGender());
-		
+
 		return repo.save(existing);
 	}
 
