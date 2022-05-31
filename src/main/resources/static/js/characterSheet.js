@@ -4,17 +4,11 @@ let createBtn = document.querySelector("#btnCreate")
 let readBtn = document.querySelector("#btnRead")
 let form = document.querySelector("form")
 
-let displayResult = (data) => {
-    for (let entry of data) {
-
-    }
-}
-
 
 let getAll = () => {
     axios.get("http://localhost:8080/charactersheet/getAll")
         .then((response) => {
-            console.log(response.data);
+            console.log(response);
         })
         .catch((err) => {
             console.error(err)
