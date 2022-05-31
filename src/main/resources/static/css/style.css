@@ -4,6 +4,7 @@
     text-align-last: center;
     font-size: 50px;
     font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     
     border-style: groove;
     border-width: 10px;
@@ -17,6 +18,40 @@ body {
 }
 
 .navbar {
-    align-content: end;
+    align-items: center;
 
+}
+
+.accordion-item {
+    background-color: antiquewhite;
+
+}
+
+.accordion-button {
+    background-color: burlywood;
+    border-style: groove;
+    border-width: 10px;
+    border-color: grey;
+    width: 200px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.buttonBar {
+    background-color: burlywood;
+    text-align-last: center;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+
+    border-style: groove;
+    border-width: 5px;
+    border-color: grey;
+}
+
+.modal-content {
+    background-color: antiquewhite;
+}
+
+.dropdown {
+    background-color: antiquewhite;
 }
