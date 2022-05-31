@@ -53,20 +53,20 @@ public class CharacterSheet {
 
 	@Column
 	@NotNull
-	private String backround;
+	private String background;
 	
 	@Column
 	@NotNull
 	private String gender;
 
-	public CharacterSheet(String forename, String surname, int level, String charClass, String race, String alignment, String backround, String gender) {
+	public CharacterSheet(String forename, String surname, int level, String charClass, String race, String alignment, String background, String gender) {
 		this.forename = forename;
 		this.surname = surname;
 		this.level=level;
 		this.charClass=charClass;
 		this.race=race;
 		this.alignment=alignment;
-		this.backround=backround;
+		this.background=background;
 		this.gender=gender;
 
 	}

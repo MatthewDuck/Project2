@@ -1,0 +1,22 @@
+.title {
+
+    background-color: burlywood;
+    text-align-last: center;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    
+    border-style: groove;
+    border-width: 10px;
+    border-color: grey;
+
+}
+
+body {
+    background-color: antiquewhite;
+
+}
+
+.navbar {
+    align-content: end;
+
+}

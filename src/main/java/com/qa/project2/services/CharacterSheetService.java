@@ -32,7 +32,7 @@ public class CharacterSheetService {
 		existing.setCharClass(updated.getCharClass());
 		existing.setRace(updated.getRace());
 		existing.setAlignment(updated.getAlignment());
-		existing.setBackround(updated.getBackround());
+		existing.setBackground(updated.getBackground());
 		existing.setGender(updated.getGender());
 
 		return repo.save(existing);

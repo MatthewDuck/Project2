@@ -19,7 +19,7 @@ import com.qa.project2.domain.CharacterSheet;
 import com.qa.project2.services.CharacterSheetService;
 
 @RestController
-@RequestMapping("/character_sheet")
+@RequestMapping("/charactersheet")
 public class CharacterSheetController {
 
 	private CharacterSheetService service;
