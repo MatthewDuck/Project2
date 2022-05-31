@@ -14,16 +14,14 @@ let displayResult = (data) => {
 let getAll = () => {
     axios.get("http://localhost:8080/charactersheet/getAll")
         .then((response) => {
-            displayResult(response.data);
+            console.log(response.data);
         })
         .catch((err) => {
             console.error(err)
         })
 }
 
-let create = (e) => {
-    const charactersheet = Object.fromEntries(new FormData(e.target).entries());
-
+let create = () => {
     axios.post("http://localhost:8080/charactersheet/create", charactersheet)
         .then((response) => {
             console.log(response);
@@ -34,6 +32,6 @@ let create = (e) => {
         })
 }
 
-createBtn.addEventListener("click", create(e));
+createBtn.addEventListener("click", create);
 readBtn.addEventListener("click", getAll);
 
