@@ -1,9 +1,12 @@
 "use strict";
 
-let createBtn = document.querySelector("#btnSave");
+let createBtn = document.querySelector("#btnCreate");
 let displayDiv = document.querySelector("#accordionFlushExample");
+let saveBtn = document.querySelector("#btnSave")
 
 let form = document.querySelector("form");
+
+let forename = document.getElementById(updateForename);
 
 let count = 0;
 
@@ -44,6 +47,8 @@ let create = () => {
         });
 }
 
+
+
 let deleteId = (id) => {
     axios.delete(`http://localhost:8080/charactersheet/delete/${id}`)
         .then((response) => {
@@ -52,12 +57,43 @@ let deleteId = (id) => {
         });
 }
 
+// let update = (id) => {
+//     axios.get(`http://localhost:8080/charactersheet/get/${id}`)
+//     .then((response) => {
+//         updateForename = data.forename;
+//     })
+//     axios.put(`http://localhost:8080/charactersheet/update/${id}`)
+//         .then((response) => {
+//             console.log(response);
+//             getAll();
+//         });
+// }
+
 let update = (id) => {
     axios.get(`http://localhost:8080/charactersheet/get/${id}`)
-    axios.put(`http://localhost:8080/charactersheet/update/${id}`)
+    .then((response) => {
+        console.log(response);
+        loadCharacter(response.data)
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+}
+
+let loadCharacter = (data) => { 
+    for (let entry of data) {
+        forename.textContent=`${entry.forename}`;
+    }
+    
+    console.log(charactersheet);
+
+    axios.put(`http://localhost:8080/charactersheet/update/${id}`, charactersheet)
         .then((response) => {
             console.log(response);
             getAll();
+        })
+        .catch((err) => {
+            console.error(err);
         });
 }
 
@@ -93,6 +129,8 @@ let displayCharacter = (data) => {
         updateBtn.setAttribute("id", "btnUpdate");
         updateBtn.setAttribute("type", "button");
         updateBtn.setAttribute("class", "btn btn-outline-dark");
+        updateBtn.setAttribute("data-bs-toggle", "modal");
+        updateBtn.setAttribute("data-bs-target", "#updateModal");
         updateBtn.innerHTML = "Update Character";
 
         let deleteBtn = document.createElement("button");
@@ -116,8 +154,12 @@ let displayCharacter = (data) => {
         accordionItem.appendChild(flushCollapse);
 
         displayDiv.appendChild(accordionItem);
+
+        deleteBtn.addEventListener("click", function () { deleteId(entry.id); });
+        updateBtn.addEventListener("click", function () { update(entry.id); });
     }
 }
 
 createBtn.addEventListener("click", create);
+//saveBtn.addEventListener("click", save);
 
