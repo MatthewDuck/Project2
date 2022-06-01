@@ -36,8 +36,8 @@ public class CharacterSheetController {
 		return new ResponseEntity<CharacterSheet>(service.create(created), HttpStatus.CREATED);
 	}
 
-	@PutMapping("/update")
-	public ResponseEntity<CharacterSheet> updateCharacterSheet(@PathParam("id") Long id,
+	@PutMapping("/update/{id}")
+	public ResponseEntity<CharacterSheet> updateCharacterSheet(@PathVariable Long id,
 			@RequestBody CharacterSheet updated) {
 		return new ResponseEntity<CharacterSheet>(service.update(id, updated), HttpStatus.OK);
 	}

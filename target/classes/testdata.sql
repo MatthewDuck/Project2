@@ -1,0 +1,1 @@
+INSERT INTO `charactersheet` (`forename`, `surname`, `level`, `char_class`, `race`, `alignment`, `background`, `gender`) VALUES ('Bob', 'Bobson', 1, 'Monk', 'Human', 'Lawfull Good', 'Urchin', 'Male')

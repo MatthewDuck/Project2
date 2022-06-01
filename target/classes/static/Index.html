@@ -12,69 +12,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<!-- <body onload="getAll()"> -->
-<body>
+<body onload="getAll()">
     <div class="title">5e Character Creator</div>
-    <div class="navbar">
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                        does limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                        does limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>, though the transition
-                        does limit overflow.
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="buttonBar"><button id="btnCreate" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+            data-bs-target="#createModal">Create new Character</button>
     </div>
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -94,7 +35,8 @@
                             <label for="inputSurname" class="form-label">Surname</label>
                             <input type="surname" class="form-control" id="inputSurname">
                         </div>
-                        <div class="level">Select Level:<select name="level" id="level">
+                        <div class="dropdown">
+                            <div>Select Level:</div><select name="level" id="level">
                                 <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -115,8 +57,10 @@
                                 <option value="18">18</option>
                                 <option value="19">19</option>
                                 <option value="20">20</option>
-                            </select></div>
-                        <div class="charClass">Select Class:<select name="charClass" id="charClass">
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <div>Class:</div><select name="charClass" id="charClass">
                                 <option value="Artificer" selected>Artificer</option>
                                 <option value="Barbarian">Barbarian</option>
                                 <option value="Bard">Bard</option>
@@ -130,8 +74,10 @@
                                 <option value="Sorcerer">Sorcerer</option>
                                 <option value="Warlock">Warlock</option>
                                 <option value="Wizard">Wizard</option>
-                            </select></div>
-                        <div class="race">Select Race:<select name="race" id="race">
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <div>Select Race:</div><select name="race" id="race">
                                 <option value="Dragonborn" selected>Dragonborn</option>
                                 <option value="Dwarf">Dwarf</option>
                                 <option value="Elf">Elf</option>
@@ -142,8 +88,10 @@
                                 <option value="Halfling">Halfling</option>
                                 <option value="Human">Human</option>
                                 <option value="Tiefling">Tiefling</option>
-                            </select></div>
-                        <div class="alignment">Select Alignment:<select name="alignment" id="alignment">
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <div>Alignment:</div><select name="alignment" id="alignment">
                                 <option value="Lawfull Good">Lawfull Good</option>
                                 <option value="Neutral Good">Neutral Good</option>
                                 <option value="Chaotic Good">Chaotic Good</option>
@@ -153,8 +101,10 @@
                                 <option value="Lawfull Evil">Lawfull Evil</option>
                                 <option value="Neutral Evil">Neutral Evil</option>
                                 <option value="Chaotic Evil">Chaotic Evil</option>
-                            </select></div>
-                        <div class="background">Select Background:<select name="background" id="background">
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <div>Background:</div><select name="background" id="background">
                                 <option value="Acolyte" selected>Acolyte</option>
                                 <option value="Athlete">Athlete</option>
                                 <option value="Charlatan">Charlatan</option>
@@ -168,32 +118,38 @@
                                 <option value="Knight">Knight</option>
                                 <option value="Noble">Noble</option>
                                 <option value="Pirate">Pirate</option>
-                            </select></div>
-                        <div class="gender">Select Gender:<select name="gender" id="gender">
-                                <option value="male" selected>Male</option>
-                                <option value="female">Female</option>
-                            </select></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="btnSave" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save Character</button>
-                </div>
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <div>Select Gender:</div><select name="gender" id="gender">
+                                <option value="Male" selected>Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="btnSave" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
+                            Character</button>
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
 
-    <div><button id="btnCreate" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create new Character</button></div>
-    <div><button id="btnReadAll" type="button" class="btn btn-primary">Read All Characters</button></div>
-    <div><button id="btnDelete" type="button" class="btn btn-primary">Delete Character</button></div>
-    <div><button id="btnUpdate" type="button" class="btn btn-primary">Update Character</button></div>
-    <div>
-        </form>
+    <div id="display">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            
+        </div>
     </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/characterSheet.js"></script>
+
 </body>
 
 </html>

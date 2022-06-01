@@ -18,7 +18,7 @@ public class CharacterSheetService {
 	}
 
 	public CharacterSheet create(CharacterSheet created) {
-		return repo.save(created);
+		return repo.saveAndFlush(created);
 
 	}
 
@@ -35,7 +35,7 @@ public class CharacterSheetService {
 		existing.setBackground(updated.getBackground());
 		existing.setGender(updated.getGender());
 
-		return repo.save(existing);
+		return repo.saveAndFlush(existing);
 	}
 
 	public CharacterSheet getCharacterSheet(Long id) {
