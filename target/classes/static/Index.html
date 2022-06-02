@@ -10,258 +10,272 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .background {
+            background-image: url("https://i.etsystatic.com/20577495/r/il/36fcf6/2108827479/il_794xN.2108827479_q8ys.jpg");
+            height:50vw;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
-<body onload="getAll()">
-    <div class="title">5e Character Creator</div>
-    <div class="buttonBar"><button id="btnCreate" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
-            data-bs-target="#createModal">Create a new Character</button>
-    </div>
-    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create New Character</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="createSheet">
-                        <div class="mb-3">
-                            <label for="inputForename" class="form-label">Forename</label>
-                            <input type="forename" class="form-control" id="inputForename" aria-describedby="required">
-                            <div id="required" class="form-text">*Required Field</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputSurname" class="form-label">Surname</label>
-                            <input type="surname" class="form-control" id="inputSurname">
-                        </div>
-                        <div class="dropdown">
-                            <div>Select Level:</div><select name="level" id="level">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Class:</div><select name="charClass" id="charClass">
-                                <option value="Artificer" selected>Artificer</option>
-                                <option value="Barbarian">Barbarian</option>
-                                <option value="Bard">Bard</option>
-                                <option value="Cleric">Cleric</option>
-                                <option value="Druid">Druid</option>
-                                <option value="Fighter">Fighter</option>
-                                <option value="Monk">Monk</option>
-                                <option value="Paladin">Paladin</option>
-                                <option value="Ranger">Ranger</option>
-                                <option value="Rogue">Rogue</option>
-                                <option value="Sorcerer">Sorcerer</option>
-                                <option value="Warlock">Warlock</option>
-                                <option value="Wizard">Wizard</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Select Race:</div><select name="race" id="race">
-                                <option value="Dragonborn" selected>Dragonborn</option>
-                                <option value="Dwarf">Dwarf</option>
-                                <option value="Elf">Elf</option>
-                                <option value="Gnome">Gnome</option>
-                                <option value="Druid">Druid</option>
-                                <option value="Half-elf">Half-elf</option>
-                                <option value="Half-orc">Half-orc</option>
-                                <option value="Halfling">Halfling</option>
-                                <option value="Human">Human</option>
-                                <option value="Tiefling">Tiefling</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Alignment:</div><select name="alignment" id="alignment">
-                                <option value="Lawfull Good">Lawfull Good</option>
-                                <option value="Neutral Good">Neutral Good</option>
-                                <option value="Chaotic Good">Chaotic Good</option>
-                                <option value="Lawfull Neutral">Lawfull Neutral</option>
-                                <option value="True Neutral">True Neutral</option>
-                                <option value="Chaotic Neutral">Chaotic Neutral</option>
-                                <option value="Lawfull Evil">Lawfull Evil</option>
-                                <option value="Neutral Evil">Neutral Evil</option>
-                                <option value="Chaotic Evil">Chaotic Evil</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Background:</div><select name="background" id="background">
-                                <option value="Acolyte" selected>Acolyte</option>
-                                <option value="Athlete">Athlete</option>
-                                <option value="Charlatan">Charlatan</option>
-                                <option value="City Watch">City Watch</option>
-                                <option value="Criminal">Criminal</option>
-                                <option value="Entertainer">Entertainer</option>
-                                <option value="Feylost">Feylost</option>
-                                <option value="Fisher">Fisher</option>
-                                <option value="Gladiator">Gladiator</option>
-                                <option value="Hermit">Hermit</option>
-                                <option value="Knight">Knight</option>
-                                <option value="Noble">Noble</option>
-                                <option value="Pirate">Pirate</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Select Gender:</div><select name="gender" id="gender">
-                                <option value="Male" selected>Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="btnCreate" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
-                            Character</button>
+<body onload="getAll()" class="background">
+    <div>
+        <div class="header">
+            <h1 class="title">5e Character Creator</h1>
+        </div>
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create New Character</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div> 
+                    <div class="modal-body">
+                        <form class="createSheet">
+                            <div class="mb-3">
+                                <label for="inputForename" class="form-label">Forename</label>
+                                <input type="text" class="form-control" id="inputForename" aria-describedby="required">
+                                <div id="required" class="form-text">*Required Field</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputSurname" class="form-label">Surname</label>
+                                <input type="text" class="form-control" id="inputSurname">
+                            </div>
+                            <div class="dropdown">
+                                <div>Select Level:</div><select name="level" id="level">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Class:</div><select name="charClass" id="charClass">
+                                    <option value="Artificer" selected>Artificer</option>
+                                    <option value="Barbarian">Barbarian</option>
+                                    <option value="Bard">Bard</option>
+                                    <option value="Cleric">Cleric</option>
+                                    <option value="Druid">Druid</option>
+                                    <option value="Fighter">Fighter</option>
+                                    <option value="Monk">Monk</option>
+                                    <option value="Paladin">Paladin</option>
+                                    <option value="Ranger">Ranger</option>
+                                    <option value="Rogue">Rogue</option>
+                                    <option value="Sorcerer">Sorcerer</option>
+                                    <option value="Warlock">Warlock</option>
+                                    <option value="Wizard">Wizard</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Select Race:</div><select name="race" id="race">
+                                    <option value="Dragonborn" selected>Dragonborn</option>
+                                    <option value="Dwarf">Dwarf</option>
+                                    <option value="Elf">Elf</option>
+                                    <option value="Gnome">Gnome</option>
+                                    <option value="Half-elf">Half-elf</option>
+                                    <option value="Half-orc">Half-orc</option>
+                                    <option value="Halfling">Halfling</option>
+                                    <option value="Human">Human</option>
+                                    <option value="Tiefling">Tiefling</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Alignment:</div><select name="alignment" id="alignment">
+                                    <option value="Lawfull Good">Lawfull Good</option>
+                                    <option value="Neutral Good">Neutral Good</option>
+                                    <option value="Chaotic Good">Chaotic Good</option>
+                                    <option value="Lawfull Neutral">Lawfull Neutral</option>
+                                    <option value="True Neutral">True Neutral</option>
+                                    <option value="Chaotic Neutral">Chaotic Neutral</option>
+                                    <option value="Lawfull Evil">Lawfull Evil</option>
+                                    <option value="Neutral Evil">Neutral Evil</option>
+                                    <option value="Chaotic Evil">Chaotic Evil</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Background:</div><select name="background" id="background">
+                                    <option value="Acolyte" selected>Acolyte</option>
+                                    <option value="Athlete">Athlete</option>
+                                    <option value="Charlatan">Charlatan</option>
+                                    <option value="City Watch">City Watch</option>
+                                    <option value="Criminal">Criminal</option>
+                                    <option value="Entertainer">Entertainer</option>
+                                    <option value="Feylost">Feylost</option>
+                                    <option value="Fisher">Fisher</option>
+                                    <option value="Gladiator">Gladiator</option>
+                                    <option value="Hermit">Hermit</option>
+                                    <option value="Knight">Knight</option>
+                                    <option value="Noble">Noble</option>
+                                    <option value="Pirate">Pirate</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Select Gender:</div><select name="gender" id="gender">
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="btnCreate" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
+                                Character</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create New Character</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="updateSheet" id="updateSheet">
+                            <input type="hidden" name="entryId">
+                            <div class="mb-3">
+                                <label for="updateForename" class="form-label">Forename</label>
+                                <input type="text" class="form-control" id="updateForename" aria-describedby="required"
+                                    name="updateForename">
+                                <div id="required" class="form-text">*Required Field</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="updateSurname" class="form-label">Surname</label>
+                                <input type="text" class="form-control" id="updateSurname" name="updateSurname">
+                            </div>
+                            <div class="dropdown">
+                                <div>Select Level:</div><select name="updateLevel" id="updateLevel">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Class:</div><select name="updateCharClass" id="updateCharClass">
+                                    <option value="Artificer" selected>Artificer</option>
+                                    <option value="Barbarian">Barbarian</option>
+                                    <option value="Bard">Bard</option>
+                                    <option value="Cleric">Cleric</option>
+                                    <option value="Druid">Druid</option>
+                                    <option value="Fighter">Fighter</option>
+                                    <option value="Monk">Monk</option>
+                                    <option value="Paladin">Paladin</option>
+                                    <option value="Ranger">Ranger</option>
+                                    <option value="Rogue">Rogue</option>
+                                    <option value="Sorcerer">Sorcerer</option>
+                                    <option value="Warlock">Warlock</option>
+                                    <option value="Wizard">Wizard</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Select Race:</div><select name="updateRace" id="updateRace">
+                                    <option value="Dragonborn" selected>Dragonborn</option>
+                                    <option value="Dwarf">Dwarf</option>
+                                    <option value="Elf">Elf</option>
+                                    <option value="Gnome">Gnome</option>
+                                    <option value="Half-elf">Half-elf</option>
+                                    <option value="Half-orc">Half-orc</option>
+                                    <option value="Halfling">Halfling</option>
+                                    <option value="Human">Human</option>
+                                    <option value="Tiefling">Tiefling</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Alignment:</div><select name="updateAlignment" id="updateAlignment">
+                                    <option value="Lawfull Good">Lawfull Good</option>
+                                    <option value="Neutral Good">Neutral Good</option>
+                                    <option value="Chaotic Good">Chaotic Good</option>
+                                    <option value="Lawfull Neutral">Lawfull Neutral</option>
+                                    <option value="True Neutral">True Neutral</option>
+                                    <option value="Chaotic Neutral">Chaotic Neutral</option>
+                                    <option value="Lawfull Evil">Lawfull Evil</option>
+                                    <option value="Neutral Evil">Neutral Evil</option>
+                                    <option value="Chaotic Evil">Chaotic Evil</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Background:</div><select name="updateBackground" id="updateBackground">
+                                    <option value="Acolyte" selected>Acolyte</option>
+                                    <option value="Athlete">Athlete</option>
+                                    <option value="Charlatan">Charlatan</option>
+                                    <option value="City Watch">City Watch</option>
+                                    <option value="Criminal">Criminal</option>
+                                    <option value="Entertainer">Entertainer</option>
+                                    <option value="Feylost">Feylost</option>
+                                    <option value="Fisher">Fisher</option>
+                                    <option value="Gladiator">Gladiator</option>
+                                    <option value="Hermit">Hermit</option>
+                                    <option value="Knight">Knight</option>
+                                    <option value="Noble">Noble</option>
+                                    <option value="Pirate">Pirate</option>
+                                </select>
+                            </div>
+                            <div class="dropdown">
+                                <div>Select Gender:</div><select name="updateGender" id="updateGender">
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="btnSave" type="button" class="btn btn-primary" data-bs-dismiss="modal">Update
+                                Character</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="display">
+            <div class="accordion accordion-flush" id="accordionResults">
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create New Character</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="createSheet">
-                        <div class="mb-3">
-                            <label for="inputForename" class="form-label">Forename</label>
-                            <input type="forename" class="form-control" id="inputForename" aria-describedby="required">
-                            <div id="required" class="form-text">*Required Field</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputSurname" class="form-label">Surname</label>
-                            <input type="surname" class="form-control" id="inputSurname">
-                        </div>
-                        <div class="dropdown">
-                            <div>Select Level:</div><select name="level" id="level">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Class:</div><select name="charClass" id="charClass">
-                                <option value="Artificer" selected>Artificer</option>
-                                <option value="Barbarian">Barbarian</option>
-                                <option value="Bard">Bard</option>
-                                <option value="Cleric">Cleric</option>
-                                <option value="Druid">Druid</option>
-                                <option value="Fighter">Fighter</option>
-                                <option value="Monk">Monk</option>
-                                <option value="Paladin">Paladin</option>
-                                <option value="Ranger">Ranger</option>
-                                <option value="Rogue">Rogue</option>
-                                <option value="Sorcerer">Sorcerer</option>
-                                <option value="Warlock">Warlock</option>
-                                <option value="Wizard">Wizard</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Select Race:</div><select name="race" id="race">
-                                <option value="Dragonborn" selected>Dragonborn</option>
-                                <option value="Dwarf">Dwarf</option>
-                                <option value="Elf">Elf</option>
-                                <option value="Gnome">Gnome</option>
-                                <option value="Druid">Druid</option>
-                                <option value="Half-elf">Half-elf</option>
-                                <option value="Half-orc">Half-orc</option>
-                                <option value="Halfling">Halfling</option>
-                                <option value="Human">Human</option>
-                                <option value="Tiefling">Tiefling</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Alignment:</div><select name="alignment" id="alignment">
-                                <option value="Lawfull Good">Lawfull Good</option>
-                                <option value="Neutral Good">Neutral Good</option>
-                                <option value="Chaotic Good">Chaotic Good</option>
-                                <option value="Lawfull Neutral">Lawfull Neutral</option>
-                                <option value="True Neutral">True Neutral</option>
-                                <option value="Chaotic Neutral">Chaotic Neutral</option>
-                                <option value="Lawfull Evil">Lawfull Evil</option>
-                                <option value="Neutral Evil">Neutral Evil</option>
-                                <option value="Chaotic Evil">Chaotic Evil</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Background:</div><select name="background" id="background">
-                                <option value="Acolyte" selected>Acolyte</option>
-                                <option value="Athlete">Athlete</option>
-                                <option value="Charlatan">Charlatan</option>
-                                <option value="City Watch">City Watch</option>
-                                <option value="Criminal">Criminal</option>
-                                <option value="Entertainer">Entertainer</option>
-                                <option value="Feylost">Feylost</option>
-                                <option value="Fisher">Fisher</option>
-                                <option value="Gladiator">Gladiator</option>
-                                <option value="Hermit">Hermit</option>
-                                <option value="Knight">Knight</option>
-                                <option value="Noble">Noble</option>
-                                <option value="Pirate">Pirate</option>
-                            </select>
-                        </div>
-                        <div class="dropdown">
-                            <div>Select Gender:</div><select name="gender" id="gender">
-                                <option value="Male" selected>Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="btnSave" type="button" class="btn btn-primary" data-bs-dismiss="modal">Update
-                            Character</button>
-                    </div>
-                </div> 
-            </div>
-        </div>
-    </div>
-
-    <div id="display">
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            
-        </div>
-    </div>
+    <footer id="footer">
+        <button id="btnModalCreate" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                data-bs-target="#createModal">Create new Character</button>
+    </footer>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

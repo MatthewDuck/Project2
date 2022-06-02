@@ -1,10 +1,20 @@
 "use strict";
 
 let createBtn = document.querySelector("#btnCreate");
-let displayDiv = document.querySelector("#accordionFlushExample");
+let displayDiv = document.querySelector("#accordionResults");
 let saveBtn = document.querySelector("#btnSave")
 
 let form = document.querySelector("form");
+
+let updateForm = document.querySelector("#updateSheet");
+let updateForename = document.querySelector("#updateForename");
+let updateSurname = document.querySelector("#updateSurname");
+let updateLevel = document.querySelector("#updateLevel");
+let updateCharClass = document.querySelector("#updateCharClass");
+let updateRace = document.querySelector("#updateRace");
+let updateAlignment = document.querySelector("#updateAlignment");
+let updateBackground = document.querySelector("#updateBackground");
+let updateGender = document.querySelector("#updateGender");
 
 let count = 0;
 
@@ -45,8 +55,6 @@ let create = () => {
         });
 }
 
-
-
 let deleteId = (id) => {
     axios.delete(`http://localhost:8080/charactersheet/delete/${id}`)
         .then((response) => {
@@ -55,56 +63,48 @@ let deleteId = (id) => {
         });
 }
 
-let update = (id) => {
+let populateModal = (id) => {
     axios.get(`http://localhost:8080/charactersheet/get/${id}`)
-    axios.put(`http://localhost:8080/charactersheet/update/${id}`)
         .then((response) => {
             console.log(response);
-            getAll();
+            let entry = response.data;
+            updateForm.entryId.value = entry.id;
+            updateForm.updateForename.value = entry.forename;
+            updateForm.updateSurname.value = entry.surname;
+            updateForm.updateLevel.value = entry.level;
+            updateForm.updateCharClass.value = entry.charClass;
+            updateForm.updateRace.value = entry.race;
+            updateForm.updateAlignment.value = entry.alignment;
+            updateForm.updateBackground.value = entry.background;
+            updateForm.updateGender.value = entry.gender;
+
+        })
+        .catch((err) => {
+            console.error(err);
         });
 }
 
-// let update = () => {
+let update = () => {
+    let charactersheetUpdated = {
+        "forename": updateForename.value,
+        "surname": updateSurname.value,
+        "level": updateLevel.value,
+        "charClass": updateCharClass.value,
+        "race": updateRace.value,
+        "alignment": updateAlignment.value,
+        "background": updateBackground.value,
+        "gender": updateGender.value
+    }
 
-//     axios.get(`http://localhost:8080/charactersheet/get/${id}`)
-//     console.log(charactersheet);
-//     for (let entry of data) {
-//         let charactersheet = {
-//             "forename": entry.forename,
-//             "surname": inputSurname.value,
-//             "level": level.value,
-//             "charClass": charClass.value,
-//             "race": race.value,
-//             "alignment": alignment.value,
-//             "background": background.value,
-//             "gender": gender.value
-//         }
-//     }
-// }
-
-// let save = () => {
-//     let charactersheet = {
-//         "forename": inputForename.value,
-//         "surname": inputSurname.value,
-//         "level": level.value,
-//         "charClass": charClass.value,
-//         "race": race.value,
-//         "alignment": alignment.value,
-//         "background": background.value,
-//         "gender": gender.value
-//     }
-
-//     console.log(charactersheet);
-
-//     axios.put(`http://localhost:8080/charactersheet/update/${id}`, charactersheet)
-//         .then((response) => {
-//             console.log(response);
-//             getAll();
-//         })
-//         .catch((err) => {
-//             console.error(err);
-//         });
-// }
+    axios.put(`http://localhost:8080/charactersheet/update/${updateForm.entryId.value}`, charactersheetUpdated)
+        .then((response) => {
+            console.log(response);
+            getAll();
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+}
 
 let displayCharacter = (data) => {
     for (let entry of data) {
@@ -135,17 +135,19 @@ let displayCharacter = (data) => {
         accordionBody.setAttribute("class", "accordion-body");
 
         let updateBtn = document.createElement("button");
-        updateBtn.setAttribute("id", "btnUpdate");
+        updateBtn.setAttribute("id", `${entry.id}`);
         updateBtn.setAttribute("type", "button");
         updateBtn.setAttribute("class", "btn btn-outline-dark");
         updateBtn.setAttribute("data-bs-toggle", "modal");
         updateBtn.setAttribute("data-bs-target", "#updateModal");
+        updateBtn.setAttribute("onclick", "populateModal(this.id)");
         updateBtn.innerHTML = "Update Character";
 
         let deleteBtn = document.createElement("button");
-        deleteBtn.setAttribute("id", "btnDelete");
+        deleteBtn.setAttribute("id", `${entry.id}`);
         deleteBtn.setAttribute("type", "button");
         deleteBtn.setAttribute("class", "btn btn-outline-dark");
+        deleteBtn.setAttribute("onclick", "deleteId(this.id)");
         deleteBtn.innerHTML = "Delete Character";
 
         let buttonDiv = document.createElement("div");
@@ -164,11 +166,10 @@ let displayCharacter = (data) => {
 
         displayDiv.appendChild(accordionItem);
 
-        deleteBtn.addEventListener("click", function () { deleteId(entry.id); });
-        updateBtn.addEventListener("click", function () { update(entry.id); });
+        // deleteBtn.addEventListener("click", function () { deleteId(entry.id); });
+        // updateBtn.addEventListener("click", function () { populateModal(entry.id); });
     }
 }
 
 createBtn.addEventListener("click", create);
-//saveBtn.addEventListener("click", save);
-
+btnSave.addEventListener("click", update);
