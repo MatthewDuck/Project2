@@ -39,11 +39,11 @@ public class CharacterSheetControllerIntegrationTest {
 	@Test
 	public void createTest() throws Exception {
 		CharacterSheet input = new CharacterSheet("Sam", "Samson", 2, "Wizard", "Gnome", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		String inputJSON = mapper.writeValueAsString(input);
 
 		CharacterSheet output = new CharacterSheet(2L, "Sam", "Samson", 2, "Wizard", "Gnome", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		String outputJSON = mapper.writeValueAsString(output);
 
 		mvc.perform(post("/charactersheet/create").contentType(MediaType.APPLICATION_JSON).content(inputJSON))
@@ -52,8 +52,8 @@ public class CharacterSheetControllerIntegrationTest {
 
 	@Test
 	public void updateTest() throws Exception{
-		CharacterSheet input = new CharacterSheet("Bob", "Smith", 2, "Monk", "Human", "Lawfull Good", "Urchin","Male");
-		CharacterSheet updated = new CharacterSheet(1L, "Bob", "Smith", 2, "Monk", "Human", "Lawfull Good", "Urchin","Male");
+		CharacterSheet input = new CharacterSheet("Bob", "Smith", 2, "Monk", "Human", "Lawfull Good", "Urchin","Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
+		CharacterSheet updated = new CharacterSheet(1L, "Bob", "Smith", 2, "Monk", "Human", "Lawfull Good", "Urchin","Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 
 		String inputJSON = mapper.writeValueAsString(input);
 		String outputJSON = mapper.writeValueAsString(updated);
@@ -63,7 +63,7 @@ public class CharacterSheetControllerIntegrationTest {
 
 	@Test
 	public void getIdTest() throws Exception{
-		CharacterSheet test = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin","Male");
+		CharacterSheet test = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin","Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		
 		String inputJSON = mapper.writeValueAsString(test);
 		
@@ -74,7 +74,7 @@ public class CharacterSheetControllerIntegrationTest {
 	@Test
 	public void getAllTest() throws Exception{
 		CharacterSheet test = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		List<CharacterSheet> output = new ArrayList<>();
 		output.add(test);
 

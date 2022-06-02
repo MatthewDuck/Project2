@@ -1,1 +1,1 @@
-INSERT INTO `charactersheet` (`forename`, `surname`, `level`, `char_class`, `race`, `alignment`, `background`, `gender`) VALUES ('Bob', 'Bobson', 1, 'Monk', 'Human', 'Lawfull Good', 'Urchin', 'Male')
+INSERT INTO `charactersheet` (`forename`, `surname`, `level`, `char_class`, `race`, `alignment`, `background`, `gender`, `char_image`) VALUES ('Bob', 'Bobson', 1, 'Monk', 'Human', 'Lawfull Good', 'Urchin', 'Male', 'https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png')

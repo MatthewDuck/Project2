@@ -44,9 +44,15 @@
                             <div class="mb-3">
                                 <label for="inputSurname" class="form-label">Surname</label>
                                 <input type="text" class="form-control" id="inputSurname">
+                                <div id="optional" class="form-text">*Optional Field</div>
                             </div>
-                            <div class="dropdown">
-                                <div>Select Level:</div><select name="level" id="level">
+                            <div class="mb-3">
+                                <label for="inputCharImage" class="form-label">Character Image URL</label>
+                                <input type="text" class="form-control" id="inputCharImage">
+                                <div id="optional" class="form-text">*Optional Field</div>
+                            </div>
+                            <div class="dropdown" id="dropdownSmallLevel">
+                                <div>Select Level:</div><select name="level" id="level" class="droplist">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -70,7 +76,7 @@
                                 </select>
                             </div>
                             <div class="dropdown">
-                                <div>Class:</div><select name="charClass" id="charClass">
+                                <div>Class:</div><div id ="classData"></div><select name="charClass" id="charClass" class="droplist" onchange="classInfoDisplay()">
                                     <option value="Artificer" selected>Artificer</option>
                                     <option value="Barbarian">Barbarian</option>
                                     <option value="Bard">Bard</option>
@@ -87,7 +93,7 @@
                                 </select>
                             </div>
                             <div class="dropdown">
-                                <div>Select Race:</div><select name="race" id="race">
+                                <div>Select Race:</div><div id ="raceData"></div><select name="race" id="race" class="droplist" onchange="raceInfoDisplay()">
                                     <option value="Dragonborn" selected>Dragonborn</option>
                                     <option value="Dwarf">Dwarf</option>
                                     <option value="Elf">Elf</option>
@@ -99,8 +105,8 @@
                                     <option value="Tiefling">Tiefling</option>
                                 </select>
                             </div>
-                            <div class="dropdown">
-                                <div>Alignment:</div><select name="alignment" id="alignment">
+                            <div class="dropdown" id="dropdownSmallAlignment">
+                                <div>Alignment:</div><select name="alignment" id="alignment" class="droplist">
                                     <option value="Lawfull Good">Lawfull Good</option>
                                     <option value="Neutral Good">Neutral Good</option>
                                     <option value="Chaotic Good">Chaotic Good</option>
@@ -113,7 +119,7 @@
                                 </select>
                             </div>
                             <div class="dropdown">
-                                <div>Background:</div><select name="background" id="background">
+                                <div>Background:</div><div id ="backgroundData"></div><select name="background" id="background" class="droplist" onchange="backgroundInfoDisplay()">
                                     <option value="Acolyte" selected>Acolyte</option>
                                     <option value="Athlete">Athlete</option>
                                     <option value="Charlatan">Charlatan</option>
@@ -129,15 +135,15 @@
                                     <option value="Pirate">Pirate</option>
                                 </select>
                             </div>
-                            <div class="dropdown">
-                                <div>Select Gender:</div><select name="gender" id="gender">
+                            <div class="dropdown" id="dropdownSmallGender">
+                                <div>Select Gender:</div><select name="gender" id="gender" class="droplist">
                                     <option value="Male" selected>Male</option>
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="btnClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button id="btnCreate" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
                                 Character</button>
                         </div>
@@ -146,7 +152,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" o>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -165,9 +171,15 @@
                             <div class="mb-3">
                                 <label for="updateSurname" class="form-label">Surname</label>
                                 <input type="text" class="form-control" id="updateSurname" name="updateSurname">
+                                <div id="optional" class="form-text">*Optional Field</div>
                             </div>
-                            <div class="dropdown">
-                                <div>Select Level:</div><select name="updateLevel" id="updateLevel">
+                            <div class="mb-3">
+                                <label for="updateCharImage" class="form-label">Character Image URL</label>
+                                <input type="text" class="form-control" id="updateCharImage">
+                                <div id="optional" class="form-text">*Optional Field</div>
+                            </div>
+                            <div class="dropdown" id="dropdownSmallUpdateLevel">
+                                <div>Select Level:</div><select name="updateLevel" id="updateLevel" class="droplist">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -191,7 +203,7 @@
                                 </select>
                             </div>
                             <div class="dropdown">
-                                <div>Class:</div><select name="updateCharClass" id="updateCharClass">
+                                <div>Class:</div><div id ="classDataUpdate"></div><select name="updateCharClass" id="updateCharClass" class="droplist" onchange="classInfoDisplayUpdate()">
                                     <option value="Artificer" selected>Artificer</option>
                                     <option value="Barbarian">Barbarian</option>
                                     <option value="Bard">Bard</option>
@@ -208,7 +220,7 @@
                                 </select>
                             </div>
                             <div class="dropdown">
-                                <div>Select Race:</div><select name="updateRace" id="updateRace">
+                                <div>Select Race:</div><div id ="raceDataUpdate"></div><select name="updateRace" id="updateRace" class="droplist" onchange="raceInfoDisplayUpdate()">
                                     <option value="Dragonborn" selected>Dragonborn</option>
                                     <option value="Dwarf">Dwarf</option>
                                     <option value="Elf">Elf</option>
@@ -220,8 +232,8 @@
                                     <option value="Tiefling">Tiefling</option>
                                 </select>
                             </div>
-                            <div class="dropdown">
-                                <div>Alignment:</div><select name="updateAlignment" id="updateAlignment">
+                            <div class="dropdown" id="dropdownSmallUpdateAlignment">
+                                <div>Alignment:</div><select name="updateAlignment" id="updateAlignment" class="droplist">
                                     <option value="Lawfull Good">Lawfull Good</option>
                                     <option value="Neutral Good">Neutral Good</option>
                                     <option value="Chaotic Good">Chaotic Good</option>
@@ -234,7 +246,7 @@
                                 </select>
                             </div>
                             <div class="dropdown">
-                                <div>Background:</div><select name="updateBackground" id="updateBackground">
+                                <div>Background:</div><div id ="backgroundDataUpdate"></div><select name="updateBackground" id="updateBackground" class="droplist"  onchange="backgroundInfoDisplayUpdate()">
                                     <option value="Acolyte" selected>Acolyte</option>
                                     <option value="Athlete">Athlete</option>
                                     <option value="Charlatan">Charlatan</option>
@@ -250,15 +262,15 @@
                                     <option value="Pirate">Pirate</option>
                                 </select>
                             </div>
-                            <div class="dropdown">
-                                <div>Select Gender:</div><select name="updateGender" id="updateGender">
+                            <div class="dropdown" id="dropdownSmallUpdateGender">
+                                <div>Select Gender:</div><select name="updateGender" id="updateGender" class="droplist">
                                     <option value="Male" selected>Male</option>
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="btnClose2" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button id="btnSave" type="button" class="btn btn-primary" data-bs-dismiss="modal">Update
                                 Character</button>
                         </div>

@@ -10,5 +10,6 @@ CREATE TABLE charactersheet (
 	alignment VARCHAR(255) NOT NULL,
 	background VARCHAR(255) NOT NULL,
 	gender VARCHAR(255) NOT NULL,
+	char_image VARCHAR(255),
 	PRIMARY KEY(id)
 );	

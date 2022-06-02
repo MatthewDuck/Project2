@@ -29,10 +29,10 @@ public class CharacterSheetServiceTest {
 	@Test
 	public void createTest() {
 		CharacterSheet input = new CharacterSheet("Sam", "Samson", 2, "Wizard", "Gnome", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 
 		CharacterSheet output = new CharacterSheet(1L, "Sam", "Samson", 2, "Wizard", "Gnome", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 
 		Mockito.when(repo.saveAndFlush(input)).thenReturn(output);
 
@@ -44,11 +44,11 @@ public class CharacterSheetServiceTest {
 	@Test
 	public void updateTest() {
 		CharacterSheet input = new CharacterSheet("Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 
 		Optional<CharacterSheet> existing = Optional
-				.of(new CharacterSheet(1L, "Bob", "Smith", 2, "Monk", "Human", "Lawfulllll Good", "Urchin", "Male"));
-		CharacterSheet output = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin", "Male");
+				.of(new CharacterSheet(1L, "Bob", "Smith", 2, "Monk", "Human", "Lawfulllll Good", "Urchin", "Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png"));
+		CharacterSheet output = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin", "Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 
 		Mockito.when(repo.findById(1L)).thenReturn(existing);
 		Mockito.when(repo.saveAndFlush(output)).thenReturn(output);
@@ -63,7 +63,7 @@ public class CharacterSheetServiceTest {
 	@Test
 	public void getIdTest() {
 		CharacterSheet output = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		Optional<CharacterSheet> optionalOutput = Optional.of(output);
 
 		Mockito.when(repo.findById(1L)).thenReturn(optionalOutput);
@@ -75,7 +75,7 @@ public class CharacterSheetServiceTest {
 	@Test
 	public void getAllTest() {
 		CharacterSheet test = new CharacterSheet(1L, "Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		List<CharacterSheet> output = new ArrayList<>();
 		output.add(test);
 

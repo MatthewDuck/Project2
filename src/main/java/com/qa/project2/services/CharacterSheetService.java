@@ -34,6 +34,7 @@ public class CharacterSheetService {
 		existing.setAlignment(updated.getAlignment());
 		existing.setBackground(updated.getBackground());
 		existing.setGender(updated.getGender());
+		existing.setCharImage(updated.getCharImage());
 
 		return repo.saveAndFlush(existing);
 	}
