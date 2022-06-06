@@ -1,0 +1,4 @@
+com\qa\project2\controllers\CharacterSheetControllerIntegrationTest.class
+com\qa\project2\services\CharacterSheetServiceTest.class
+com\qa\project2\controllers\CharacterSheetUnitTest.class
+com\qa\project2\Project2ApplicationTests.class

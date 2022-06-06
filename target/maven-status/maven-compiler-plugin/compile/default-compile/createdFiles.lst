@@ -1,0 +1,6 @@
+com\qa\project2\controllers\CharacterSheetController.class
+com\qa\project2\repository\CharacterSheetRepo.class
+com\qa\project2\domain\CharacterSheet.class
+com\qa\project2\config\AppConfig.class
+com\qa\project2\Project2Application.class
+com\qa\project2\services\CharacterSheetService.class

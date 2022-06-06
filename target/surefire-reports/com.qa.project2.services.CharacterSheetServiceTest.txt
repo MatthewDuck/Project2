@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.project2.services.CharacterSheetServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.235 s - in com.qa.project2.services.CharacterSheetServiceTest

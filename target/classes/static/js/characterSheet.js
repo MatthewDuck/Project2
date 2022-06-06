@@ -181,8 +181,9 @@ let displayCharacter = (data) => {
         buttonDiv.appendChild(updateBtn);
         buttonDiv.appendChild(deleteBtn);
         imageDiv.appendChild(charImage);
-        accordionBody.appendChild(imageDiv);
         accordionBody.appendChild(buttonDiv);
+        accordionBody.appendChild(imageDiv);
+        
 
         accordionHeader.appendChild(accordionButton);
         flushCollapse.appendChild(accordionBody);
