@@ -37,7 +37,7 @@ public class CharacterSheetUnitTest {
 	@Test
 	public void createTest() throws Exception {
 		CharacterSheet input = new CharacterSheet("Sam", "Samson", 2, "Wizard", "Gnome", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		String inputJSON = mapper.writeValueAsString(input);
 
 		Mockito.when(service.create(input)).thenReturn(input);
@@ -49,7 +49,7 @@ public class CharacterSheetUnitTest {
 	@Test
 	public void updateTest() throws Exception {
 		CharacterSheet updated = new CharacterSheet("Bob", "Smith", 2, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		String updateJSON = mapper.writeValueAsString(updated);
 		
 		Mockito.when(service.update(1L, updated)).thenReturn(updated);
@@ -61,7 +61,7 @@ public class CharacterSheetUnitTest {
 	@Test
 	public void getIdTest() throws Exception {
 		CharacterSheet input = new CharacterSheet("Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 
 		String inputJSON = mapper.writeValueAsString(input);
 		
@@ -75,7 +75,7 @@ public class CharacterSheetUnitTest {
 	@Test
 	public void getAllTest() throws Exception {
 		CharacterSheet test = new CharacterSheet("Bob", "Bobson", 1, "Monk", "Human", "Lawfull Good", "Urchin",
-				"Male");
+				"Male", "https://www.freepngimg.com/thumb/machine/47280-8-rubber-duck-hq-image-free-png.png");
 		List<CharacterSheet> output = new ArrayList<>();
 		output.add(test);
 
