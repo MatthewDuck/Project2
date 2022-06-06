@@ -64,17 +64,17 @@ public class CharacterSheet {
 	@Column
 	private String charImage;
 
-	public CharacterSheet(String forename, String surname, int level, String charClass, String race, String alignment, String background, String gender) {
-		this.forename = forename;
-		this.surname = surname;
-		this.level=level;
-		this.charClass=charClass;
-		this.race=race;
-		this.alignment=alignment;
-		this.background=background;
-		this.gender=gender;
-
-	}
+//	public CharacterSheet(String forename, String surname, int level, String charClass, String race, String alignment, String background, String gender) {
+//		this.forename = forename;
+//		this.surname = surname;
+//		this.level=level;
+//		this.charClass=charClass;
+//		this.race=race;
+//		this.alignment=alignment;
+//		this.background=background;
+//		this.gender=gender;
+//
+//	}
 	
 	//Test for image
 	public CharacterSheet(String forename, String surname, int level, String charClass, String race, String alignment, String background, String gender, String charImage) {

@@ -45,6 +45,7 @@
     padding-right: 300px;
     padding-bottom: 50px;
     border-radius: 20px;
+    overflow: auto;
 }
 
 .accordion-header {
@@ -53,6 +54,8 @@
 
 .accordion-item {
     background-color: rgb(0, 0, 0, 0);
+    max-height: 400px;
+
 }
 
 .accordion-button {
@@ -71,6 +74,8 @@
 
 .accordion-body {
     background-color: rgb(255, 255, 255, 0.8);
+    overflow: auto;
+    max-height: 400px;
 }
 
 .modal-content {
