@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.qa.project2.controllers.CharacterSheetUnitTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in com.qa.project2.controllers.CharacterSheetUnitTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.793 s - in com.qa.project2.controllers.CharacterSheetUnitTest
